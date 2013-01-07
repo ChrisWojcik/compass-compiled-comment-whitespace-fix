@@ -87,17 +87,18 @@ blocks with the exact same text PLUS a newline.
 ```
 
 Regex is confusing sometimes (at least to me), so here's what this one does. The forward 
-slashes at either end define the pattern. The "m" is a flag for multiline mode 
+slashes at either end define the pattern. The `m` is a flag for multiline mode 
 so patterns stretching across multiple lines can be matched.
 
-The "/*" and "*\" which define a multi-line comment in css must be escaped because 
+The `/*` and `*\` which define a multi-line comment in css must be escaped because 
 those are also special characters in regex. In between I specify one space and then 
-two "=" signs so as not to match EVERY multi-line comment. ".*?" means zero or more of any 
+two `=` signs so as not to match EVERY multi-line comment. `.*?` means zero or more of any 
 character, but "non-greedily" meaning it will match the smallest possible pattern. 
 (Otherwise we'd match nearly the entire file between the first and last comment blocks).
 
 The entire pattern is wrapped in parentheses which "captures" it. gsub can then reference 
-the captured text with '\1' so that we can append a newline character onto the exact same text.
+the captured text with `'\1'` so that we can append a newline character onto the 
+exact same text.
 
 Again, this requires that you document your code according to this convention. But 
 that's life. You may also be able to play around with the regex to fit your needs.
