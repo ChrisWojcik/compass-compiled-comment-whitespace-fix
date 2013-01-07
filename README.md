@@ -93,7 +93,7 @@ so patterns stretching across multiple lines can be matched.
 The `/*` and `*\` which define a multi-line comment in css must be escaped because 
 those are also special characters in regex. In between I specify one space and then 
 two `=` signs so as not to match EVERY multi-line comment. `.*?` means zero or more of any 
-character, but "non-greedily" meaning it will match the smallest possible pattern. 
+character, but "non-greedily" meaning it will match the shortest possible matching pattern. 
 (Otherwise we'd match nearly the entire file between the first and last comment blocks).
 
 The entire pattern is wrapped in parentheses which "captures" it. gsub can then reference 
