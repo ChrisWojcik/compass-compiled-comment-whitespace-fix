@@ -1,11 +1,12 @@
 #compass-compiled-comment-whitespace-fix
 
 When I compile stylesheets using compass, it ignores whitespace in my authored scss 
-document and removes some extra linebreaks between css comments I use as documentation 
-to divide the file up into sections. It makes no practical difference except that it 
-annoys me. This little snippet helps me fix that.
+document outputs according to a pre-defined style. In particular, it removes some 
+extra linebreaks between css comments I use as documentation to divide the file 
+up into sections. It makes no practical difference except that it annoys me. 
+This little snippet helps me fix that.
 
-NOTE: This fix is specific to the formatting of my comments,but you may be able to
+NOTE: This fix is specific to the documentation convention I use, but you may be able to
 modify the regular expression to fit your needs.
 
 NOTE: I'm a total ruby noob (I learned enough to do this!), so there may be a better 
