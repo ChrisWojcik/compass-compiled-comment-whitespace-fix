@@ -1,16 +1,16 @@
 #compass-compiled-comment-whitespace-fix
 
 When I compile stylesheets using compass, it ignores whitespace in my authored scss 
-document and removes some extra linebreaks between the css comments I use for documentation 
+document and removes some extra linebreaks between css comments I use as documentation 
 to divide the file up into sections. It makes no practical difference except that it 
 annoys me. This little snippet helps me fix that.
 
 NOTE: This fix is specific to the formatting of my comments,but you may be able to
 modify the regular expression to fit your needs.
 
-NOTE: I'm a total ruby noob, so there may be a better way to do this. I also run 
-Windows. I don't think that should affect how sass treats linebreaks, but I could 
-be wrong.
+NOTE: I'm a total ruby noob (I learned enough to do this!), so there may be a better 
+way to solve the problem. I also run Windows. I don't think that should affect 
+how sass treats linebreaks, but I could be wrong.
 
 ## The Problem
 
@@ -45,17 +45,17 @@ textarea {
 }
 ```
 
-ARGH!! There's no blank line after the divider comment! How hideous!
+ARGH!! There's no blank line after the divider comment! How hideous! My eyes!!
 
 But who cares, I should minify the CSS file for production use anyway, you say. 
 Yeah...I know, but maybe I don't wanna!
 
 ## The (Hacky) Solution
-I add this code snippet in at the bottom of my config.rb file. Don't overwrite 
+I added this code snippet in at the bottom of my config.rb file. Don't overwrite 
 all the other options, obviously. This code will execute any time a stylesheet is
 compiled. Again, this particular snippet will only work if you use the style of 
-comment divider seen above. It's the style used by the HTML5 Boilerplate, so you 
-may use it or something similar already.
+section divider seen above. It's the style used by the HTML5 Boilerplate's main 
+css file, so you may use it or something similar already.
 
 ```ruby
 on_stylesheet_saved do |file|
@@ -93,7 +93,7 @@ The "/*" and "*\" which define a multi-line comment in css must be escaped becau
 those are also special characters in regex. In between I specify one space and then 
 two "=" signs so as not to match EVERY multi-line comment. ".*?" means zero or more of any 
 character, but "non-greedily" meaning it will match the smallest possible pattern. 
-(Otherwise we'd grab nearly the entire file between the first and last comment blocks).
+(Otherwise we'd match nearly the entire file between the first and last comment blocks).
 
 The entire pattern is wrapped in parentheses which "captures" it. gsub can then reference 
 the captured text with '\1' so that we can append a newline character onto the exact same text.
