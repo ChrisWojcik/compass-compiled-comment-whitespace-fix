@@ -1,7 +1,7 @@
 #compass-compiled-comment-whitespace-fix
 
 When I compile stylesheets using compass, it ignores whitespace in my authored scss 
-document outputs according to a pre-defined style. In particular, it removes some 
+document and outputs according to a pre-defined style. In particular, it removes some 
 extra linebreaks between css comments I use as documentation to divide the file 
 up into sections. It makes no practical difference except that it annoys me. 
 This little snippet helps me fix that.
